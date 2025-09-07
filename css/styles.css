@@ -1,0 +1,214 @@
+/* Astronomy theme: animated star background */
+.star-bg {
+  pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+}
+.star-bg:before, .star-bg:after {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+}
+.star-bg:before {
+  background: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.7"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.5"/><circle cx="200" cy="120" r="1.2" fill="white" opacity="0.8"/><circle cx="300" cy="60" r="1.1" fill="white" opacity="0.6"/><circle cx="500" cy="200" r="1.3" fill="white" opacity="0.7"/><circle cx="700" cy="100" r="1.4" fill="white" opacity="0.5"/><circle cx="900" cy="300" r="1.2" fill="white" opacity="0.7"/></svg>');
+  animation: stars-move 60s linear infinite;
+}
+.star-bg:after {
+  background: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.2" fill="white" opacity="0.4"/><circle cx="120" cy="80" r="1.1" fill="white" opacity="0.3"/><circle cx="400" cy="220" r="1.3" fill="white" opacity="0.5"/><circle cx="600" cy="160" r="1.1" fill="white" opacity="0.4"/><circle cx="800" cy="250" r="1.2" fill="white" opacity="0.3"/><circle cx="1000" cy="350" r="1.1" fill="white" opacity="0.4"/></svg>');
+  animation: stars-move 90s linear infinite reverse;
+}
+@keyframes stars-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+
+/* Floating animation for images */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Officer card hover effect */
+.officer-card {
+  transition: transform 0.35s box-shadow 0.35s cubic-bezier(.22,1,.36,1);
+  will-change: box-shadow;
+}
+.officer-card:hover, .officer-card:focus {
+  transform: scale(1.0) translateY(-2px) rotateZ(0.5deg);
+  box-shadow: 0 24px 48px 0 rgba(253, 220, 35, 0.22), 0 4px 16px 0 rgba(0,0,0,0.14);
+  z-index: 10;
+}
+
+/* Softer yellow button for astronomy theme */
+.btn-yellow-soft {
+  background: linear-gradient(90deg, #ffe066 60%, #f9d423 100%);
+  color: #222;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px 0 rgba(253, 220, 35, 0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-yellow-soft:hover, .btn-yellow-soft:focus {
+  background: linear-gradient(90deg, #ffe066 80%, #f9d423 100%);
+  color: #000;
+  box-shadow: 0 4px 16px 0 rgba(253, 220, 35, 0.18);
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #0b0d17;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+}
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+/* Video background styles */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background: linear-gradient(to right, #ffe066, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation Bar */
+nav {
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav-link {
+  color: #ffe066;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  text-decoration: none;
+}
+.nav-link:hover, .nav-link:focus {
+  background: linear-gradient(90deg, #ffe066 60%, #f9d423 100%);
+  color: #222;
+  box-shadow: 0 2px 8px 0 rgba(253,184,19,0.08);
+}
+
+/* Responsive nav menu */
+#nav-menu a {
+  color: #ffe066;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+
+/* Section containers for Next.js feel */
+.max-w-4xl, .max-w-5xl, .max-w-6xl, .container {
+  border-radius: 1.5rem;
+  background: rgba(17, 19, 34, 0.85);
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .max-w-4xl, .max-w-5xl, .max-w-6xl, .container {
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+  }
+}
+
+/* Button style for Next.js look */
+.btn-yellow {
+  background: linear-gradient(90deg, #ffe066 60%, #f9d423 100%);
+  color: #222;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px 0 rgba(253,184,19,0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-yellow:hover, .btn-yellow:focus {
+  background: linear-gradient(90deg, #ffe066 80%, #f9d423 100%);
+  color: #000;
+  box-shadow: 0 4px 16px 0 rgba(253,184,19,0.18);
+}
+
+/* Swiper navigation arrows color fix */
+.swiper-button-next, .swiper-button-prev {
+  color: #ffe066 !important;
+}
+
+/* Responsive font sizes for headings */
+h1 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+h2 {
+  font-size: 2rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Utility for glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
