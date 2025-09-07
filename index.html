@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPS USM - Society of Physics Students</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,25 +21,25 @@
 
 
   <!-- Navigation Bar -->
-  <nav class="sticky top-0 z-50 bg-[#0b0d17]/90 backdrop-blur shadow-lg border-b border-yellow-700/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-20">
+  <nav>
+    <div class="nav-inner max-w-7xl">
       <a href="#" class="flex items-center space-x-2">
-        <span class="text-2xl font-bold gradient-text tracking-tight">SPS USM</span>
+        <span class="text-2xl font-bold">SPS USM</span>
       </a>
-      <div class="hidden md:flex space-x-8">
+      <div class="hidden md:flex items-center">
         <a href="#about" class="nav-link">About</a>
         <a href="#officers" class="nav-link">Officers</a>
         <a href="#faculty" class="nav-link">Faculty</a>
         <a href="#events" class="nav-link">Events</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <button id="nav-toggle" class="md:hidden text-yellow-400 focus:outline-none">
+      <button id="nav-toggle" class="md:hidden btn">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
-    <div id="nav-menu" class="md:hidden hidden px-4 pb-4 bg-[#0b0d17]/95">
+    <div id="nav-menu" class="md:hidden hidden px-4 pb-4">
       <a href="#about" class="block py-2 nav-link">About</a>
       <a href="#officers" class="block py-2 nav-link">Officers</a>
       <a href="#faculty" class="block py-2 nav-link">Faculty</a>
@@ -55,76 +55,75 @@
         Your browser does not support the video tag.
       </video>
     </div>
-    <div class="overlay absolute inset-0"></div>
+    <div class="site-overlay"></div>
   <div class="relative z-10">
-      <h1 class="text-6xl md:text-8xl font-bold drop-shadow-lg gradient-text">SPS USM</h1>
-      <p class="mt-6 text-xl md:text-2xl text-gray-200">Society of Physics Students - The University of Southern Mississippi</p>
-      <a href="#about" class="mt-10 inline-block btn-yellow-soft">Discover More</a>
+      <h1 class="text-6xl md:text-8xl font-bold">SPS USM</h1>
+      <p class="mt-6 text-xl md:text-2xl">Society of Physics Students - The University of Southern Mississippi</p>
+      <a href="#about" class="mt-10 inline-block btn btn-accent">Discover More</a>
+    </div>
+  </section>
+  <section id="about" class="py-24 px-4 section-muted">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">About SPS USM</h2>
+      <p id="about-text" class="text-lg md:text-xl leading-relaxed"></p>
     </div>
   </section>
 
-  <section id="about" class="py-24 px-4 bg-gradient-to-b from-[#0b0d17] to-[#110f0b]">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">About SPS USM</h2>
-      <p id="about-text" class="text-lg md:text-xl text-gray-300 leading-relaxed"></p>
-    </div>
-  </section>
-
-  <section id="officers" class="py-24 px-4 bg-[#111322]">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text">Our Officers</h2>
+  <section id="officers" class="py-24 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Our Officers</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         <!-- Officer 1 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="president">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 border-yellow-300 shadow-lg mb-4 object-cover animate-float" alt="President">
-          <h3 class="text-lg font-bold text-yellow-300">President</h3>
-          <p class="text-gray-200 font-semibold">Sallie Ann Schmidt</p>
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="President">
+          <h3 class="text-lg font-bold" style="color:var(--accent)">President</h3>
+          <p class="font-semibold">Sallie Ann Schmidt</p>
         </div>
         <!-- Officer 2 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="vp">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 border-yellow-300 shadow-lg mb-4 object-cover animate-float" alt="Vice President">
-          <h3 class="text-lg font-bold text-yellow-300">Vice President</h3>
-          <p class="text-gray-200 font-semibold">Nishant Chaudhari</p>
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Vice President">
+          <h3 class="text-lg font-bold" style="color:var(--accent)">Vice President</h3>
+          <p class="font-semibold">Nishant Chaudhari</p>
         </div>
         <!-- Officer 3 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="treasurer">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 border-yellow-300 shadow-lg mb-4 object-cover animate-float" alt="Treasurer">
-          <h3 class="text-lg font-bold text-yellow-300">Treasurer</h3>
-          <p class="text-gray-200 font-semibold">Eva Chalona</p>
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Treasurer">
+          <h3 class="text-lg font-bold" style="color:var(--accent)">Treasurer</h3>
+          <p class="font-semibold">Eva Chalona</p>
         </div>
         <!-- Officer 4 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="secretary">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 border-yellow-300 shadow-lg mb-4 object-cover animate-float" alt="Secretary">
-          <h3 class="text-lg font-bold text-yellow-300">Secretary</h3>
-          <p class="text-gray-200 font-semibold">Maragaret Brune</p>
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Secretary">
+          <h3 class="text-lg font-bold" style="color:var(--accent)">Secretary</h3>
+          <p class="font-semibold">Maragaret Brune</p>
         </div>
         <!-- Officer 5 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="social">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 border-yellow-300 shadow-lg mb-4 object-cover animate-float" alt="Social Media Manager">
-          <h3 class="text-lg font-bold text-yellow-300">Social Media Manager</h3>
-          <p class="text-gray-200 font-semibold">Kastuv Gaire</p>
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Social Media Manager">
+          <h3 class="text-lg font-bold" style="color:var(--accent)">Social Media Manager</h3>
+          <p class="font-semibold">Kastuv Gaire</p>
         </div>
       </div>
     </div>
 
     <!-- Officer Modal Popup -->
     <div id="officer-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 hidden">
-      <div class="bg-[#181a2a] rounded-2xl shadow-2xl max-w-md w-full p-8 relative text-center">
-        <button id="close-officer-modal" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-300 text-2xl font-bold">&times;</button>
-        <img id="modal-officer-img" src="" class="w-24 h-24 rounded-full border-4 border-yellow-300 shadow-lg mx-auto mb-4 object-cover animate-float" alt="Officer">
-        <h3 id="modal-officer-title" class="text-xl font-bold text-yellow-300 mb-1"></h3>
-        <p id="modal-officer-name" class="text-gray-200 font-semibold mb-4"></p>
-        <p id="modal-officer-desc" class="text-gray-300"></p>
-      </div>
+        <div class="glass max-w-md w-full p-8 relative text-center">
+          <button id="close-officer-modal" class="absolute top-4 right-4 text-gray-600 hover:text-accent text-2xl font-bold">&times;</button>
+          <img id="modal-officer-img" src="" class="w-24 h-24 rounded-full border-4 shadow-lg mx-auto mb-4 object-cover" style="border-color:var(--accent)" alt="Officer">
+          <h3 id="modal-officer-title" class="text-xl font-bold" style="color:var(--accent)"></h3>
+          <p id="modal-officer-name" class="font-semibold mb-4"></p>
+          <p id="modal-officer-desc"></p>
+        </div>
     </div>
   </section>
 
-  <section id="faculty" class="py-24 px-4 bg-gradient-to-b from-[#111322] to-[#110f0b]">
-  <div class="max-w-4xl mx-auto text-center">
-  <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text text-center">Faculty Advisors</h2>
+  <section id="faculty" class="py-24 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+  <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Faculty Advisors</h2>
 
     <!-- Swiper for Advisors -->
-    <div class="swiper advisorSwiper relative">
+  <div class="swiper advisorSwiper relative">
       <div class="swiper-wrapper">
 
         <!-- Advisor 1 -->
@@ -179,16 +178,16 @@
 
       </div>
 
-      <!-- Navigation arrows -->
-  <div class="swiper-button-next text-yellow-300"></div>
-  <div class="swiper-button-prev text-yellow-300"></div>
+    <!-- Navigation arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
     </div>
   </div>
 </section>
 
-  <section id="events" class="py-24 bg-gradient-to-b from-gray-900 to-black relative z-10">
+  <section id="events" class="py-24">
   <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-yellow-400 mb-12">Events</h2>
+    <h2 class="text-4xl md:text-5xl font-bold mb-12">Events</h2>
 
     <!-- Swiper -->
     <div class="swiper mySwiper">
@@ -242,8 +241,8 @@
       </div>
 
       <!-- Swiper Controls -->
-      <div class="swiper-button-next text-yellow-400"></div>
-      <div class="swiper-button-prev text-yellow-400"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
   </div>
@@ -251,20 +250,20 @@
 
 
 
-  <section id="contact" class="py-24 px-4 bg-gradient-to-b from-[#0b0d17] to-[#111322]">
+  <section id="contact" class="py-24 px-4 section-muted">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Contact Us</h2>
-      <p class="text-gray-300 mb-8">Have questions or want to join SPS? Reach out to us!</p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">Contact Us</h2>
+      <p class="mb-8">Have questions or want to join SPS? Reach out to us!</p>
       <form class="space-y-6">
-        <input type="text" placeholder="Your Name" class="w-full p-4 rounded bg-[#1a1c2c] text-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none">
-        <input type="email" placeholder="Your Email" class="w-full p-4 rounded bg-[#1a1c2c] text-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none">
-        <textarea placeholder="Your Message" rows="4" class="w-full p-4 rounded bg-[#1a1c2c] text-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none"></textarea>
-        <button type="submit" class="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-black px-8 py-3 rounded-full text-lg font-bold transition">Send Message</button>
+        <input type="text" placeholder="Your Name" class="w-full p-4 rounded bg-white border" aria-label="Your name">
+        <input type="email" placeholder="Your Email" class="w-full p-4 rounded bg-white border" aria-label="Your email">
+        <textarea placeholder="Your Message" rows="4" class="w-full p-4 rounded bg-white border" aria-label="Your message"></textarea>
+        <button type="submit" class="btn btn-accent px-8 py-3 text-lg font-bold">Send Message</button>
       </form>
     </div>
   </section>
 
-  <footer class="py-8 text-center bg-[#0b0d17] text-gray-400 border-t border-yellow-700/30">
+  <footer class="py-8 text-center text-gray-600 border-t" style="border-color: rgba(200,174,114,0.12)">
     <p>&copy; 2025 SPS USM. All rights reserved.</p>
   </footer>
 
