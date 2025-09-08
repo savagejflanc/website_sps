@@ -73,15 +73,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Initialize AOS
+AOS.init({
+  duration: 800,
+  easing: 'cubic-bezier(.22,1,.36,1)',
+  once: true,
+  offset: 50
+});
+
+// Initialize Advisor Swiper
 var advisorSwiper = new Swiper(".advisorSwiper", {
   effect: "slide",
-  loop: true,
+  loop: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  speed: 250, // fast and responsive
+  speed: 400,
   allowTouchMove: true,
+  spaceBetween: 16,
+  slidesPerView: 1,
+  breakpoints: {
+    540: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 16,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 20,
+    }
+  },
+  watchOverflow: true,
+  centerInsufficientSlides: true
 });
 
 

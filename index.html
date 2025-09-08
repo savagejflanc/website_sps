@@ -23,35 +23,40 @@
   <!-- Navigation Bar -->
   <nav>
     <div class="nav-inner max-w-7xl">
-      <a href="#" class="flex items-center space-x-2">
+      <a href="#" class="flex items-center">
         <span class="text-2xl font-bold">SPS USM</span>
       </a>
-      <div class="hidden md:flex items-center">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#officers" class="nav-link">Officers</a>
-        <a href="#faculty" class="nav-link">Faculty</a>
-        <a href="#events" class="nav-link">Events</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <button id="nav-toggle" class="md:hidden btn">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+      <button id="nav-toggle" class="md:hidden btn btn-accent rounded-lg p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-    </div>
-    <div id="nav-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="#about" class="block py-2 nav-link">About</a>
-      <a href="#officers" class="block py-2 nav-link">Officers</a>
-      <a href="#faculty" class="block py-2 nav-link">Faculty</a>
-      <a href="#events" class="block py-2 nav-link">Events</a>
-      <a href="#contact" class="block py-2 nav-link">Contact</a>
+      <div id="nav-menu" class="hidden">
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#officers" class="nav-link" data-section="officers">Officers</a>
+        <a href="#faculty" class="nav-link" data-section="faculty">Faculty</a>
+        <a href="#events" class="nav-link" data-section="events">Events</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </div>
     </div>
   </nav>
 
-  <section class="relative h-screen flex items-center justify-center text-center">
-  <div class="relative z-10">
-      <h1 class="text-6xl md:text-8xl font-bold">SPS USM</h1>
-      <p class="mt-6 text-xl md:text-2xl">Society of Physics Students - The University of Southern Mississippi</p>
+  <section class="hero-section flex items-center justify-center text-center">
+    <div class="equations-bg">
+      <div class="equation" style="top: 15%; left: 20%; animation-delay: 0s;">E = mc²</div>
+      <div class="equation" style="top: 45%; left: 65%; animation-delay: -5s;">F = ma</div>
+      <div class="equation" style="top: 75%; left: 35%; animation-delay: -2s;">∇ × E = -∂B/∂t</div>
+      <div class="equation" style="top: 25%; left: 80%; animation-delay: -7s;">ψ(r,t) = Ae^(i(k·r-ωt))</div>
+      <div class="equation" style="top: 85%; left: 15%; animation-delay: -3s;">PV = nRT</div>
+      <div class="equation" style="top: 35%; left: 45%; animation-delay: -8s;">∮ E·dA = Q/ε₀</div>
+      <div class="equation" style="top: 65%; left: 75%; animation-delay: -4s;">∇ · B = 0</div>
+      <div class="equation" style="top: 55%; left: 25%; animation-delay: -6s;">F = G(m₁m₂)/r²</div>
+      <div class="equation" style="top: 5%; left: 55%; animation-delay: -9s;">dS ≥ 0</div>
+      <div class="equation" style="top: 95%; left: 40%; animation-delay: -1s;">∇²ψ + (2m/ℏ²)(E-V)ψ = 0</div>
+    </div>
+    <div class="relative z-20">
+      <h1 class="text-6xl md:text-8xl font-bold text-black">SPS USM</h1>
+      <p class="mt-6 text-xl md:text-2xl text-black">Society of Physics Students - The University of Southern Mississippi</p>
       <a href="#about" class="mt-10 inline-block btn btn-accent">Discover More</a>
     </div>
   </section>
@@ -111,135 +116,91 @@
     </div>
   </section>
 
-  <section id="faculty" class="py-24 px-4">
-  <div class="max-w-7xl mx-auto text-center">
-  <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Faculty Advisors</h2>
+  <section id="faculty" class="faculty-section">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Faculty Advisors</h2>
 
-    <!-- Swiper for Advisors -->
-  <div class="swiper advisorSwiper relative">
-      <div class="swiper-wrapper">
-
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Advisor 1 -->
-  <div class="swiper-slide flex flex-col items-center aos-fade">
-          <img src="jeremy-scott.jpg" 
-          class="w-40 h-40 rounded-full border-4 avatar-border shadow-lg mb-6 object-cover" 
-          alt="Advisor 1">
-
-          <h3 class="text-2xl text-accent font-bold">Professor Jeremy Scott</h3>
-          <p class="text-muted mt-2 max-w-md">Professor of Physics. Teaches students General Physics, Modern Physics, Mathematical Methods, Optics, Advanced Physics Lab.</p>
+        <div class="advisor-card">
+          <img src="jeremy-scott.jpg" alt="Professor Jeremy Scott">
+          <h3>Professor Jeremy Scott</h3>
+          <p>Professor of Physics. Teaches students General Physics, Modern Physics, Mathematical Methods, Optics, Advanced Physics Lab.</p>
         </div>
 
         <!-- Advisor 2 -->
-  <div class="swiper-slide flex flex-col items-center aos-fade">
-          <img src="chris-sirola.jpg" 
-          class="w-40 h-40 rounded-full border-4 avatar-border shadow-lg mb-6 object-cover" 
-          alt="Advisor 1">
-
-          <h3 class="text-2xl text-accent font-bold">Professor Chris Sirola</h3>
-          <p class="text-muted mt-2 max-w-md">Professor of Astronomy & Physics education; quasars; variable stars. Current research interests include science education and variable stars.</p>
+        <div class="advisor-card">
+          <img src="chris-sirola.jpg" alt="Professor Chris Sirola">
+          <h3>Professor Chris Sirola</h3>
+          <p>Professor of Astronomy & Physics education; quasars; variable stars. Current research interests include science education and variable stars.</p>
         </div>
 
         <!-- Advisor 3 -->
-  <div class="swiper-slide flex flex-col items-center aos-fade">
-          <img src="_faculty-profile-placeholder.jpg" 
-          class="w-40 h-40 rounded-full border-4 avatar-border shadow-lg mb-6 object-cover" 
-          alt="Advisor 1">
-
-          <h3 class="text-2xl text-accent font-bold">Dr. Michael Vera</h3>
-          <p class="text-muted mt-2 max-w-md">Professor of Physics. Teaches E&M, General Physics, Quantum Mechanics. Specializes in Ocean acoustics, chaotic systems, computational simulation.</p>
+        <div class="advisor-card">
+          <img src="_faculty-profile-placeholder.jpg" alt="Dr. Michael Vera">
+          <h3>Dr. Michael Vera</h3>
+          <p>Professor of Physics. Teaches E&M, General Physics, Quantum Mechanics. Specializes in Ocean acoustics, chaotic systems, computational simulation.</p>
         </div>
 
         <!-- Advisor 4 -->
-  <div class="swiper-slide flex flex-col items-center aos-fade">
-          <img src="chris-winstead.jpg" 
-          class="w-40 h-40 rounded-full border-4 avatar-border shadow-lg mb-6 object-cover" 
-          alt="Advisor 1">
-
-          <h3 class="text-2xl text-accent font-bold">Dr. Chris Winstead</h3>
-          <p class="text-muted mt-2 max-w-md">Dean of the College of Arts and Sciences.</p>
+        <div class="advisor-card">
+          <img src="chris-winstead.jpg" alt="Dr. Chris Winstead">
+          <h3>Dr. Chris Winstead</h3>
+          <p>Dean of the College of Arts and Sciences.</p>
         </div>
 
         <!-- Advisor 5 -->
-  <div class="swiper-slide flex flex-col items-center aos-fade">
-          <img src="katja-biswas.jpg" 
-          class="w-40 h-40 rounded-full border-4 avatar-border shadow-lg mb-6 object-cover" 
-          alt="Advisor 1">
-
-          <h3 class="text-2xl text-accent font-bold">Dr. Katja Biswas</h3>
-          <p class="text-muted mt-2 max-w-md">Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
+        <div class="advisor-card">
+          <img src="katja-biswas.jpg" alt="Dr. Katja Biswas">
+          <h3>Dr. Katja Biswas</h3>
+          <p>Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
         </div>
-
       </div>
-
-    <!-- Navigation arrows -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <section id="events" class="py-24">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-12">Events</h2>
+  <section id="events" class="py-8 section-container">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Events</h2>
 
-    <!-- Swiper -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Event 1 -->
-        <div class="swiper-slide">
-          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-semibold text-accent">Physics Demo Day</h3>
-            <p class="text-muted mt-2">Exciting experiments & demonstrations.</p>
-            <a href="event1.html" class="text-blue-400 underline mt-4 block">View Details</a>
-          </div>
+        <div class="event-card">
+          <h3>Physics Demo Day</h3>
+          <p>Join us for exciting experiments & demonstrations that bring physics to life!</p>
+          <a href="event1.html">Learn More →</a>
         </div>
 
         <!-- Event 2 -->
-        <div class="swiper-slide">
-          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-semibold text-accent">Conference Trip</h3>
-            <p class="text-muted mt-2">Our students presenting at APS.</p>
-            <a href="event2.html" class="text-blue-400 underline mt-4 block">View Details</a>
-          </div>
+        <div class="event-card">
+          <h3>Conference Trip</h3>
+          <p>Watch our students present groundbreaking research at the APS Conference.</p>
+          <a href="event2.html">Learn More →</a>
         </div>
 
         <!-- Event 3 -->
-        <div class="swiper-slide">
-          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-semibold text-accent">Outreach Program</h3>
-            <p class="text-muted mt-2">Sharing physics with local schools.</p>
-            <a href="event3.html" class="text-blue-400 underline mt-4 block">View Details</a>
-          </div>
+        <div class="event-card">
+          <h3>Outreach Program</h3>
+          <p>Sharing physics with local schools through interactive demonstrations and workshops.</p>
+          <a href="event3.html">Learn More →</a>
         </div>
 
         <!-- Event 4 -->
-        <div class="swiper-slide">
-          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-semibold text-accent">Lab Tour</h3>
-            <p class="text-muted mt-2">Guided visit to research facilities.</p>
-            <a href="event4.html" class="text-blue-400 underline mt-4 block">View Details</a>
-          </div>
+        <div class="event-card">
+          <h3>Lab Tour</h3>
+          <p>Guided visit to our research facilities. See where the magic happens!</p>
+          <a href="event4.html">Learn More →</a>
         </div>
 
         <!-- Event 5 -->
-        <div class="swiper-slide">
-          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-semibold text-accent">Social Night</h3>
-            <p class="text-muted mt-2">Games, networking, and fun!</p>
-            <a href="event5.html" class="text-blue-400 underline mt-4 block">View Details</a>
-          </div>
+        <div class="event-card">
+          <h3>Social Night</h3>
+          <p>Join us for games, networking, and fun with fellow physics enthusiasts!</p>
+          <a href="event5.html">Learn More →</a>
         </div>
-
       </div>
-
-      <!-- Swiper Controls -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
@@ -264,25 +225,77 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Mobile nav toggle
+    // Randomize equation movements
     document.addEventListener('DOMContentLoaded', function() {
+      const equations = document.querySelectorAll('.equation');
+      
+      equations.forEach(eq => {
+        // Random vertical position
+        eq.style.top = Math.random() * 90 + '%';
+        
+        // Random animation duration (15-25s)
+        const duration = 15 + Math.random() * 10;
+        eq.style.animationDuration = duration + 's';
+        
+        // Random starting position
+        eq.style.animationDelay = -Math.random() * duration + 's';
+        
+        // Recreate animation when it ends
+        eq.addEventListener('animationend', () => {
+          eq.style.top = Math.random() * 90 + '%';
+          eq.style.animationDelay = '0s';
+        });
+      });
+
+      // Main navigation setup
       const navToggle = document.getElementById('nav-toggle');
       const navMenu = document.getElementById('nav-menu');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      // Mobile nav toggle
       if (navToggle && navMenu) {
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.addEventListener('click', () => {
           const isHidden = navMenu.classList.toggle('hidden');
           navToggle.setAttribute('aria-expanded', String(!isHidden));
         });
+      }
 
-        // auto-close on mobile when a nav link is clicked
-        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      // Handle active state and mobile menu close
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          // Remove active class from all links
+          navLinks.forEach(l => l.classList.remove('active'));
+          // Add active class to clicked link
+          link.classList.add('active');
+          
+          // Close mobile menu if needed
           if (window.innerWidth < 768) {
             navMenu.classList.add('hidden');
             navToggle.setAttribute('aria-expanded', 'false');
           }
-        }));
-      }
+        });
+      });
+
+      // Set active state based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= (sectionTop - sectionHeight/3)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === current) {
+            link.classList.add('active');
+          }
+        });
+      });
     });
   </script>
 
