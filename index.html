@@ -269,9 +269,19 @@
       const navToggle = document.getElementById('nav-toggle');
       const navMenu = document.getElementById('nav-menu');
       if (navToggle && navMenu) {
+        navToggle.setAttribute('aria-expanded', 'false');
         navToggle.addEventListener('click', () => {
-          navMenu.classList.toggle('hidden');
+          const isHidden = navMenu.classList.toggle('hidden');
+          navToggle.setAttribute('aria-expanded', String(!isHidden));
         });
+
+        // auto-close on mobile when a nav link is clicked
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            navMenu.classList.add('hidden');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        }));
       }
     });
   </script>
