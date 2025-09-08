@@ -46,12 +46,12 @@ body{
 .equation {
   position: absolute;
   font-family: 'Cambria Math', serif;
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.25);
   font-size: 28px;
   font-weight: bold;
   white-space: nowrap;
-  opacity: 0.8;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   transition: opacity 0.3s ease;
 }
 
@@ -207,9 +207,28 @@ nav {
 .max-w-7xl{max-width:1200px;margin:0 auto;padding:24px 16px}
 .container-centered{max-width:1100px;margin:0 auto;padding:20px 16px}
 
-/* Headings use Impact for strong presence */
-h1,h2,h3{font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;letter-spacing:0.04em;margin:0}
-h1{font-size:42px;font-weight:700}
+/* Headings styling */
+h1,h2,h3{margin:0}
+h2,h3{font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;letter-spacing:0.04em}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--accent) 0%, #2D3748 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+  }
+}
+
 h2{font-size:26px;margin-bottom:1rem}
 h3{font-size:20px}
 
@@ -428,5 +447,25 @@ nav{background:var(--bg);padding:8px 12px;border-bottom:1px solid var(--border-g
 
 /* Responsive adjustments */
 @media (max-width:768px){h1{font-size:34px}.max-w-7xl{padding:24px}.glass{padding:14px}}
+
+/* Arrow link styles */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  font-weight: 600;
+  transition: all 0.3s var(--easing);
+  text-decoration: none;
+  line-height: 1;
+  transform-origin: center;
+}
+
+.arrow-link:hover {
+  transform: translateX(15px) scale(1.1);
+  color: var(--accent) !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
 
 /* Keep stylesheet focused and performant */

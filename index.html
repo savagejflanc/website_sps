@@ -7,13 +7,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPS USM - Society of Physics Students</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    
+    /* Navigation Styles */
+    .nav-link {
+      position: relative;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #nav-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 5rem !important;
+      }
+
+      #nav-menu:not(.hidden) {
+        transform: translateX(0);
+      }
+
+      #nav-menu > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: left;
+        font-size: 1.125rem;
+        color: #333;
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent);
+        background-color: rgba(0,0,0,0.05);
+      }
+    }
   </style>
 </head>
 <!-- Swiper JS -->
@@ -21,25 +82,29 @@
 
 
   <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-inner max-w-7xl">
+  <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
+    <div class="nav-inner max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <a href="#" class="flex items-center">
-        <span class="text-2xl font-bold">SPS USM</span>
+        <img src="sps_logo.jpg" alt="SPS USM Logo" class="h-12 w-auto">
       </a>
-      <button id="nav-toggle" class="md:hidden btn btn-accent rounded-lg p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+      <button id="nav-toggle" class="md:hidden z-[100] btn bg-white hover:bg-gray-100 rounded-lg p-2 fixed right-4 top-4 shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-      <div id="nav-menu" class="hidden">
-        <a href="#about" class="nav-link" data-section="about">About</a>
-        <a href="#officers" class="nav-link" data-section="officers">Officers</a>
-        <a href="#faculty" class="nav-link" data-section="faculty">Faculty</a>
-        <a href="#events" class="nav-link" data-section="events">Events</a>
-        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      <div id="nav-menu" class="hidden md:flex md:items-center fixed md:static top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-white md:bg-transparent p-6 md:p-0 shadow-lg md:shadow-none transition-all duration-300 ease-in-out transform translate-x-full md:translate-x-0 z-[90]">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-start md:items-center">
+          <a href="#about" class="nav-link text-lg" data-section="about">About</a>
+          <a href="#officers" class="nav-link text-lg" data-section="officers">Officers</a>
+          <a href="#faculty" class="nav-link text-lg" data-section="faculty">Faculty</a>
+          <a href="#events" class="nav-link text-lg" data-section="events">Events</a>
+          <a href="#contact" class="nav-link text-lg" data-section="contact">Contact</a>
+        </div>
       </div>
     </div>
   </nav>
+  <!-- Spacer to prevent content from going under fixed nav -->
+  <div class="h-20"></div>
 
   <section class="hero-section flex items-center justify-center text-center">
     <div class="equations-bg">
@@ -55,50 +120,50 @@
       <div class="equation" style="top: 95%; left: 40%; animation-delay: -1s;">∇²ψ + (2m/ℏ²)(E-V)ψ = 0</div>
     </div>
     <div class="relative z-20">
-      <h1 class="text-6xl md:text-8xl font-bold text-black">SPS USM</h1>
+      <h1 class="text-6xl md:text-7xl font-black italic tracking-tight text-[#FFCE00] uppercase" style="font-family: 'Helvetica Condensed', 'Arial Narrow', Arial, sans-serif; letter-spacing: -0.02em;">SPS USM</h1>
       <p class="mt-6 text-xl md:text-2xl text-black">Society of Physics Students - The University of Southern Mississippi</p>
       <a href="#about" class="mt-10 inline-block btn btn-accent">Discover More</a>
     </div>
   </section>
   <section id="about" class="py-24 px-4 section-muted">
     <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-8">About SPS USM</h2>
-      <p id="about-text" class="text-lg md:text-xl leading-relaxed"></p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-down">About SPS USM</h2>
+      <p id="about-text" class="text-lg md:text-xl leading-relaxed" data-aos="fade-up" data-aos-delay="200"></p>
     </div>
   </section>
 
   <section id="officers" class="py-24 px-4">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Our Officers</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-down">Our Officers</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10" data-aos="fade-up" data-aos-delay="200">
         <!-- Officer 1 -->
-  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="president">
+  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="president" data-aos="fade-up" data-aos-delay="0">
           <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="President">
-          <h3 class="text-lg font-bold" style="color:var(--accent)">President</h3>
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">President</h3>
           <p class="font-semibold">Sallie Ann Schmidt</p>
         </div>
         <!-- Officer 2 -->
-  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="vp">
-          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Vice President">
-          <h3 class="text-lg font-bold" style="color:var(--accent)">Vice President</h3>
+  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="vp" data-aos="fade-up" data-aos-delay="100">
+          <img src="vice_president.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Vice President">
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Vice President</h3>
           <p class="font-semibold">Nishant Chaudhari</p>
         </div>
         <!-- Officer 3 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="treasurer">
           <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Treasurer">
-          <h3 class="text-lg font-bold" style="color:var(--accent)">Treasurer</h3>
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Treasurer</h3>
           <p class="font-semibold">Eva Chalona</p>
         </div>
         <!-- Officer 4 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="secretary">
           <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Secretary">
-          <h3 class="text-lg font-bold" style="color:var(--accent)">Secretary</h3>
-          <p class="font-semibold">Maragaret Brune</p>
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Secretary</h3>
+          <p class="font-semibold">Margaret Brune</p>
         </div>
         <!-- Officer 5 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="social">
           <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Social Media Manager">
-          <h3 class="text-lg font-bold" style="color:var(--accent)">Social Media Manager</h3>
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Social Media Manager</h3>
           <p class="font-semibold">Kastuv Gaire</p>
         </div>
       </div>
@@ -116,44 +181,53 @@
     </div>
   </section>
 
-  <section id="faculty" class="faculty-section">
+  <section id="faculty" class="faculty-section" data-aos="fade-up">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold mb-8 text-center">Faculty Advisors</h2>
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-down">Faculty Advisors</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="200">
         <!-- Advisor 1 -->
-        <div class="advisor-card">
+        <div class="advisor-card" data-aos="fade-right" data-aos-delay="0">
           <img src="jeremy-scott.jpg" alt="Professor Jeremy Scott">
           <h3>Professor Jeremy Scott</h3>
           <p>Professor of Physics. Teaches students General Physics, Modern Physics, Mathematical Methods, Optics, Advanced Physics Lab.</p>
         </div>
 
         <!-- Advisor 2 -->
-        <div class="advisor-card">
+        <div class="advisor-card" data-aos="fade-up" data-aos-delay="100">
           <img src="chris-sirola.jpg" alt="Professor Chris Sirola">
           <h3>Professor Chris Sirola</h3>
           <p>Professor of Astronomy & Physics education; quasars; variable stars. Current research interests include science education and variable stars.</p>
         </div>
 
         <!-- Advisor 3 -->
-        <div class="advisor-card">
-          <img src="_faculty-profile-placeholder.jpg" alt="Dr. Michael Vera">
+        <div class="advisor-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="michael_vera.jpg" alt="Dr. Michael Vera">
           <h3>Dr. Michael Vera</h3>
           <p>Professor of Physics. Teaches E&M, General Physics, Quantum Mechanics. Specializes in Ocean acoustics, chaotic systems, computational simulation.</p>
         </div>
 
         <!-- Advisor 4 -->
-        <div class="advisor-card">
+        <div class="advisor-card" data-aos="fade-up" data-aos-delay="300">
           <img src="chris-winstead.jpg" alt="Dr. Chris Winstead">
           <h3>Dr. Chris Winstead</h3>
           <p>Dean of the College of Arts and Sciences.</p>
         </div>
 
         <!-- Advisor 5 -->
-        <div class="advisor-card">
-          <img src="katja-biswas.jpg" alt="Dr. Katja Biswas">
-          <h3>Dr. Katja Biswas</h3>
-          <p>Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <div class="advisor-card" data-aos="fade-up" data-aos-delay="400" style="margin-right: 0;">
+            <img src="katja-biswas.jpg" alt="Dr. Katja Biswas">
+            <h3>Dr. Katja Biswas</h3>
+            <p>Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
+          </div>
+          <a href="https://www.usm.edu/mathematics-natural-sciences/mans-faculty-per-discipline.php" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="arrow-link" 
+             style="font-size: 3em; color: silver; font-weight: 600; padding-bottom: 2rem;">
+             &gt;
+          </a>
         </div>
       </div>
     </div>
@@ -161,40 +235,40 @@
 
   <section id="events" class="py-8 section-container">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold mb-8 text-center">Events</h2>
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-down">Events</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Event 1 -->
-        <div class="event-card">
-          <h3>Physics Demo Day</h3>
+        <div class="event-card" data-aos="fade-up" data-aos-delay="0">
+          <h3 class="text-xl" style="font-family:'Space Grotesk', sans-serif; color:var(--accent);">Physics Demo Day</h3>
           <p>Join us for exciting experiments & demonstrations that bring physics to life!</p>
           <a href="event1.html">Learn More →</a>
         </div>
 
         <!-- Event 2 -->
-        <div class="event-card">
-          <h3>Conference Trip</h3>
+        <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl" style="font-family:'Space Grotesk', sans-serif; color:var(--accent);">Conference Trip</h3>
           <p>Watch our students present groundbreaking research at the APS Conference.</p>
           <a href="event2.html">Learn More →</a>
         </div>
 
         <!-- Event 3 -->
-        <div class="event-card">
-          <h3>Outreach Program</h3>
+        <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl" style="font-family:'Space Grotesk', sans-serif; color:var(--accent);">Outreach Program</h3>
           <p>Sharing physics with local schools through interactive demonstrations and workshops.</p>
           <a href="event3.html">Learn More →</a>
         </div>
 
         <!-- Event 4 -->
-        <div class="event-card">
-          <h3>Lab Tour</h3>
+        <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl" style="font-family:'Space Grotesk', sans-serif; color:var(--accent);">Lab Tour</h3>
           <p>Guided visit to our research facilities. See where the magic happens!</p>
           <a href="event4.html">Learn More →</a>
         </div>
 
         <!-- Event 5 -->
-        <div class="event-card">
-          <h3>Social Night</h3>
+        <div class="event-card" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl" style="font-family:'Space Grotesk', sans-serif; color:var(--accent);">Social Night</h3>
           <p>Join us for games, networking, and fun with fellow physics enthusiasts!</p>
           <a href="event5.html">Learn More →</a>
         </div>
@@ -204,27 +278,212 @@
 
 
 
-  <section id="contact" class="py-24 px-4 section-muted">
+  <section id="contact" class="py-24 px-4 section-muted" data-aos="fade-up">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-8">Contact Us</h2>
-      <p class="mb-8">Have questions or want to join SPS? Reach out to us!</p>
-      <form class="space-y-6">
-        <input type="text" placeholder="Your Name" class="w-full p-4 rounded bg-white border" aria-label="Your name">
-        <input type="email" placeholder="Your Email" class="w-full p-4 rounded bg-white border" aria-label="Your email">
-        <textarea placeholder="Your Message" rows="4" class="w-full p-4 rounded bg-white border" aria-label="Your message"></textarea>
-        <button type="submit" class="btn btn-accent px-8 py-3 text-lg font-bold">Send Message</button>
+      <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-down">Contact Us</h2>
+      <p class="mb-8" data-aos="fade-up" data-aos-delay="200">Have questions or want to join SPS? Reach out to us!</p>
+      
+      <!-- Success Message (hidden by default) -->
+      <div id="success-message" class="hidden p-4 mb-6 bg-green-100 text-green-700 rounded" role="alert">
+        Thank you! Your message has been sent successfully.
+      </div>
+
+      <form id="contact-form" class="space-y-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="text-left">
+          <input type="text" 
+                 id="name" 
+                 name="name" 
+                 placeholder="Your Name" 
+                 class="w-full p-4 rounded bg-white border" 
+                 required
+                 aria-label="Your name">
+          <span class="error-message text-red-500 text-sm hidden"></span>
+        </div>
+
+        <div class="text-left">
+          <input type="email" 
+                 id="email" 
+                 name="email" 
+                 placeholder="Your Email" 
+                 class="w-full p-4 rounded bg-white border" 
+                 required
+                 aria-label="Your email">
+          <span class="error-message text-red-500 text-sm hidden">Please enter a valid email address</span>
+        </div>
+
+        <div class="text-left">
+          <textarea id="message" 
+                    name="message" 
+                    placeholder="Your Message" 
+                    rows="4" 
+                    class="w-full p-4 rounded bg-white border" 
+                    required
+                    aria-label="Your message"></textarea>
+          <span class="error-message text-red-500 text-sm hidden">Message must be at least 10 characters long</span>
+        </div>
+
+        <button type="submit" class="btn btn-accent px-8 py-3 text-lg font-bold">
+          <span class="button-text">Send Message</span>
+          <span class="button-loader hidden">
+            <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Sending...
+          </span>
+        </button>
       </form>
     </div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const buttonText = submitButton.querySelector('.button-text');
+      const buttonLoader = submitButton.querySelector('.button-loader');
+
+      // Email validation function
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Show error message
+      function showError(input, message) {
+        const errorSpan = input.nextElementSibling;
+        errorSpan.textContent = message;
+        errorSpan.classList.remove('hidden');
+        input.classList.add('border-red-500');
+      }
+
+      // Hide error message
+      function hideError(input) {
+        const errorSpan = input.nextElementSibling;
+        errorSpan.classList.add('hidden');
+        input.classList.remove('border-red-500');
+      }
+
+      // Form validation
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        let isValid = true;
+
+        // Reset previous error states
+        hideError(emailInput);
+        hideError(messageInput);
+
+        // Validate email
+        if (!isValidEmail(emailInput.value)) {
+          showError(emailInput, 'Please enter a valid email address');
+          isValid = false;
+        }
+
+        // Validate message length
+        if (messageInput.value.length < 10) {
+          showError(messageInput, 'Message must be at least 10 characters long');
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Show loading state
+        buttonText.classList.add('hidden');
+        buttonLoader.classList.remove('hidden');
+        submitButton.disabled = true;
+
+        try {
+          // Prepare form data
+          const formData = {
+            name: document.getElementById('name').value,
+            email: emailInput.value,
+            message: messageInput.value,
+            to: 'Nishant.Chaudhari@usm.edu'
+          };
+
+          // Send email using EmailJS or similar service
+          // Note: You'll need to set up an email service to handle this
+          // For now, we'll simulate the email sending with a timeout
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          // Show success message
+          form.reset();
+          successMessage.classList.remove('hidden');
+          setTimeout(() => {
+            successMessage.classList.add('hidden');
+          }, 5000);
+
+        } catch (error) {
+          alert('There was an error sending your message. Please try again.');
+        } finally {
+          // Reset button state
+          buttonText.classList.remove('hidden');
+          buttonLoader.classList.add('hidden');
+          submitButton.disabled = false;
+        }
+      });
+
+      // Real-time validation
+      emailInput.addEventListener('input', function() {
+        if (this.value && !isValidEmail(this.value)) {
+          showError(this, 'Please enter a valid email address');
+        } else {
+          hideError(this);
+        }
+      });
+
+      messageInput.addEventListener('input', function() {
+        if (this.value && this.value.length < 10) {
+          showError(this, 'Message must be at least 10 characters long');
+        } else {
+          hideError(this);
+        }
+      });
+    });
+  </script>
+
   <footer class="py-8 text-center text-muted border-t" style="border-color: rgba(200,174,114,0.12)">
-    <p>&copy; 2025 SPS USM. All rights reserved.</p>
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex items-center gap-2 text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#FFCE00]">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span class="font-semibold">SPS Office: TEC 114</span>
+      </div>
+      <div class="flex gap-6 items-center">
+        <a href="https://www.instagram.com/sps_usm" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity" aria-label="Follow us on Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" class="hover:scale-110 transition-transform">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://discord.gg/zZSPu364F2" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity" aria-label="Join our Discord server">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" class="hover:scale-110 transition-transform">
+            <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/>
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2025 SPS USM. All rights reserved.</p>
+    </div>
   </footer>
 
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
   <script>
+    // Initialize AOS with custom settings
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: false,
+      offset: 50,
+      delay: 100,
+      mirror: true
+    });
+
     // Randomize equation movements
     document.addEventListener('DOMContentLoaded', function() {
       const equations = document.querySelectorAll('.equation');
@@ -252,12 +511,56 @@
       const navMenu = document.getElementById('nav-menu');
       const navLinks = document.querySelectorAll('.nav-link');
       
-      // Mobile nav toggle
+      // Mobile nav toggle with animation
       if (navToggle && navMenu) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.addEventListener('click', () => {
-          const isHidden = navMenu.classList.toggle('hidden');
-          navToggle.setAttribute('aria-expanded', String(!isHidden));
+        let isOpen = false;
+        
+        function toggleMenu() {
+          isOpen = !isOpen;
+          
+          // First remove the hidden class to make the menu visible
+          if (isOpen) {
+            navMenu.style.display = 'block'; // Force display block
+            navMenu.classList.remove('hidden');
+            // Give the browser a moment to register the display change
+            requestAnimationFrame(() => {
+              navMenu.classList.remove('translate-x-full');
+            });
+          } else {
+            navMenu.classList.add('translate-x-full');
+            // Wait for the transition to complete before hiding
+            setTimeout(() => {
+              navMenu.classList.add('hidden');
+              navMenu.style.display = ''; // Reset display
+            }, 300);
+          }
+          
+          // Toggle hamburger animation
+          if (isOpen) {
+            navToggle.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            `;
+          } else {
+            navToggle.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            `;
+          }
+        }
+
+        navToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (isOpen && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            toggleMenu();
+          }
         });
       }
 
@@ -270,9 +573,8 @@
           link.classList.add('active');
           
           // Close mobile menu if needed
-          if (window.innerWidth < 768) {
-            navMenu.classList.add('hidden');
-            navToggle.setAttribute('aria-expanded', 'false');
+          if (window.innerWidth < 768 && !navMenu.classList.contains('hidden')) {
+            navToggle.click();
           }
         });
       });
@@ -295,6 +597,77 @@
             link.classList.add('active');
           }
         });
+      });
+
+      // Officer Modal Functionality
+      const officerCards = document.querySelectorAll('.officer-card');
+      const officerModal = document.getElementById('officer-modal');
+      const closeOfficerModal = document.getElementById('close-officer-modal');
+      const modalOfficerImg = document.getElementById('modal-officer-img');
+      const modalOfficerTitle = document.getElementById('modal-officer-title');
+      const modalOfficerName = document.getElementById('modal-officer-name');
+      const modalOfficerDesc = document.getElementById('modal-officer-desc');
+
+      const officerDetails = {
+        president: {
+          title: 'President',
+          name: 'Sallie Ann Schmidt',
+          description: 'Leading SPS with dedication and vision.',
+          image: '_faculty-profile-placeholder.jpg'
+        },
+        vp: {
+          title: 'Vice President',
+          name: 'Nishant Chaudhari',
+          description: 'Supporting SPS operations and initiatives.',
+          image: 'vice_president.jpg'
+        },
+        treasurer: {
+          title: 'Treasurer',
+          name: 'Eva Chalona',
+          description: 'Managing SPS finances and budgeting.',
+          image: '_faculty-profile-placeholder.jpg'
+        },
+        secretary: {
+          title: 'Secretary',
+          name: 'Margaret Brune',
+          description: 'Maintaining records and communications.',
+          image: '_faculty-profile-placeholder.jpg'
+        },
+        social: {
+          title: 'Social Media Manager',
+          name: 'Kastuv Gaire',
+          description: 'Managing SPS online presence and engagement.',
+          image: '_faculty-profile-placeholder.jpg'
+        }
+      };
+
+      officerCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const officerId = card.getAttribute('data-officer');
+          const officer = officerDetails[officerId];
+          
+          // Get the image source from the clicked card
+          const cardImg = card.querySelector('img');
+          const imgSrc = cardImg.src;
+          
+          modalOfficerImg.src = imgSrc;
+          modalOfficerTitle.textContent = officer.title;
+          modalOfficerName.textContent = officer.name;
+          modalOfficerDesc.textContent = officer.description;
+          
+          officerModal.classList.remove('hidden');
+        });
+      });
+
+      closeOfficerModal.addEventListener('click', () => {
+        officerModal.classList.add('hidden');
+      });
+
+      // Close modal when clicking outside
+      officerModal.addEventListener('click', (e) => {
+        if (e.target === officerModal) {
+          officerModal.classList.add('hidden');
+        }
       });
     });
   </script>
