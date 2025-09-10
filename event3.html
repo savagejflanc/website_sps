@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Navigation Styles */
     .nav-link {
@@ -30,7 +31,8 @@
 
     .nav-link:hover::after,
     .nav-link.active::after {
-      width: 100%;
+      width: calc(100% - 1rem);
+      margin: 0 0.5rem;
     }
 
     @media (max-width: 768px) {
@@ -131,13 +133,13 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-200">
-    <div class="nav-inner max-w-7xl mx-auto px-3 py-1 flex justify-between items-center">
+  <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
+    <div class="nav-inner max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
-        <img src="sps_logo.jpg" alt="SPS USM Logo" class="h-6 w-auto">
+        <img src="sps_logo.jpg" alt="SPS USM Logo" class="h-8 w-auto">
       </a>
-      <button id="nav-toggle" class="md:hidden z-[100] btn bg-white hover:bg-gray-100 rounded p-1 fixed right-3 top-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-4 h-4">
+      <button id="nav-toggle" class="md:hidden z-[100] btn bg-white hover:bg-gray-100 rounded-lg p-2 fixed right-4 top-4 shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -153,7 +155,7 @@
     </div>
   </nav>
   <!-- Spacer to prevent content from going under fixed nav -->
-  <div class="h-8"></div>
+  <div class="h-16"></div>
 
   <div class="event-header" data-aos="fade">
     <div>
