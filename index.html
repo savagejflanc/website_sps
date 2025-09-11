@@ -143,24 +143,35 @@
     <div class="max-w-7xl mx-auto">
       <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-down">Our Officers</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10" data-aos="fade-up" data-aos-delay="200">
-        <!-- Officer 1 -->
-  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="president" data-aos="fade-up" data-aos-delay="0">
-          <img src="Sallie_Ann.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="President">
-          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">President</h3>
-          <p class="font-semibold">Sallie Ann Schmidt</p>
-        </div>
-        <!-- Officer 2 -->
-  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="vp" data-aos="fade-up" data-aos-delay="100">
-          <img src="vice_president.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Vice President">
-          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Vice President</h3>
-          <p class="font-semibold">Nishant Chaudhari</p>
-        </div>
+  <!-- Officer 1 -->
+  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="president">
+    <img src="Sallie_Ann.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="President">
+    <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">President</h3>
+    <p class="font-semibold">Sallie Ann Schmidt</p>
+  </div>
+  <!-- Officer 2 -->
+  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="vp">
+    <img src="vice_president.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Vice President">
+    <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Vice President</h3>
+    <p class="font-semibold">Nishant Chaudhari</p>
+  </div>
         <!-- Officer 3 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="treasurer">
           <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Treasurer">
           <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Treasurer</h3>
           <p class="font-semibold">Eva Chalona</p>
         </div>
+
+
+
+  <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="secretary">
+          <img src="_faculty-profile-placeholder.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Secretary">
+          <h3 class="text-lg" style="color:var(--accent); font-family:'Space Grotesk', sans-serif;">Secretary</h3>
+          <p class="font-semibold">Rylee Landry</p>
+        </div>
+
+  
+
         <!-- Officer 4 -->
   <div class="glass p-6 flex flex-col items-center cursor-pointer officer-card" data-officer="social">
           <img src="kastuv_gaire.jpg" class="w-28 h-28 rounded-full border-4 shadow-lg mb-4 object-cover" style="border-color:var(--accent)" alt="Social Media Manager">
@@ -216,20 +227,18 @@
         </div>
 
         <!-- Advisor 5 -->
-        <div style="display: flex; align-items: center; gap: 2rem;">
-          <div class="advisor-card" data-aos="fade-up" data-aos-delay="400" style="margin-right: 0;">
-            <img src="katja-biswas.jpg" alt="Dr. Katja Biswas">
-            <h3>Dr. Katja Biswas</h3>
-            <p>Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
-          </div>
-          <a href="https://www.usm.edu/mathematics-natural-sciences/mans-faculty-per-discipline.php" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="arrow-link" 
-             style="font-size: 3em; color: silver; font-weight: 600; padding-bottom: 2rem;">
-             &gt;
-          </a>
+        <div class="advisor-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="katja-biswas.jpg" alt="Dr. Katja Biswas">
+          <h3>Dr. Katja Biswas</h3>
+          <p>Analytical Mechanics, Classical Electrodynamics, General Physics with Calculus.</p>
         </div>
+        <a href="https://www.usm.edu/mathematics-natural-sciences/mans-faculty-per-discipline.php" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="arrow-link" 
+           style="font-size: 3em; color: silver; font-weight: 600; padding-bottom: 2rem;">
+           &gt;
+        </a>
       </div>
     </div>
   </section>
@@ -621,6 +630,12 @@
           name: 'Nishant Chaudhari',
           description: 'Supporting SPS operations and initiatives.',
           image: 'vice_president.jpg'
+        },
+        secretary: {
+          title: 'Secretary',
+          name: 'Rylee Landry',
+          description: 'Maintaining records and communications.',
+          image: '_faculty-profile-placeholder.jpg'
         },
         treasurer: {
           title: 'Treasurer',
