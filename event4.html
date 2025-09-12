@@ -3,13 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Social Night - SPS USM Events</title>
+  <title>Physics Demo Day - USM SPS</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Navigation Styles */
+    .nav-link {
+      position: relative;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #nav-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 5rem !important;
+      }
+
+      #nav-menu:not(.hidden) {
+        transform: translateX(0);
+      }
+
+      #nav-menu > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: left;
+        font-size: 1.125rem;
+        color: #333;
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--accent);
+        background-color: rgba(0,0,0,0.05);
+      }
+    }
+
     .event-header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/social-night.jpg');
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/lab-tour.jpg');
       background-size: cover;
       background-position: center;
       height: 400px;
@@ -68,25 +132,34 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-inner max-w-7xl">
+  <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
+    <div class="nav-inner max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
-        <img src="sps_logo.jpg" alt="SPS USM Logo" class="h-16 w-auto">
+        <img src="sps_logo.jpg" alt="SPS USM Logo" class="h-8 w-auto">
       </a>
-      <div id="nav-menu">
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#officers" class="nav-link">Officers</a>
-        <a href="index.html#faculty" class="nav-link">Faculty</a>
-        <a href="index.html#events" class="nav-link">Events</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
+      <button id="nav-toggle" class="md:hidden z-[100] btn bg-white hover:bg-gray-100 rounded-lg p-2 fixed right-4 top-4 shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div id="nav-menu" class="hidden md:flex md:items-center fixed md:static top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-white md:bg-transparent p-6 md:p-0 shadow-lg md:shadow-none transition-all duration-300 ease-in-out transform translate-x-full md:translate-x-0 z-[90]">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-start md:items-center">
+          <a href="index.html#about" class="nav-link text-sm">About</a>
+          <a href="index.html#officers" class="nav-link text-sm">Officers</a>
+          <a href="index.html#faculty" class="nav-link text-sm">Faculty</a>
+          <a href="index.html#events" class="nav-link text-sm">Events</a>
+          <a href="index.html#contact" class="nav-link text-sm">Contact</a>
+        </div>
       </div>
     </div>
   </nav>
+  <!-- Spacer to prevent content from going under fixed nav -->
+  <div class="h-16"></div>
 
   <div class="event-header" data-aos="fade">
     <div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Physics Social Night</h1>
-      <p class="text-xl">Connect, Share, and Have Fun with Fellow Physics Enthusiasts</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">SPS Physics Demo Day</h1>
+      <p class="text-xl">A free fun event hosted by SPS to do live cool demos.</p>
     </div>
   </div>
 
@@ -103,51 +176,45 @@
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        <span>September 30, 2025</span>
-      </div>
-      <div class="event-meta-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-        <span>Student Union</span>
+        <span>September 11, 2025</span>
       </div>
       <div class="event-meta-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        <span>6:00 PM - 9:00 PM</span>
+        <span>TEC 411: 6:30 PM</span>
+      </div>
+      <div class="event-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>TEC 411</span>
       </div>
     </div>
 
     <div class="event-details" data-aos="fade-up">
-      <h2 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Event Overview</h2>
-      <p class="mb-4">Join us for an evening of fun, food, and physics! Our Social Night is the perfect opportunity to meet fellow physics students, faculty members, and make lasting connections in a relaxed atmosphere.</p>
+      <h2 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">About the event</h2>
+      <p class="mb-6">Join us on September 18th at 6:30 PM in TEC 411 for an exciting evening of live physics experiments and mind-blowing demonstrations! See a frozen marshmallow with liquid nitrogen, test the bed of nails, explore light spectra, and much more. The event is free and open to everyone—come enjoy the fun, and bring your own demo ideas for future events!</p>
       
-      <p class="mb-4">Event Features:</p>
-      <ul class="list-disc ml-6 mb-4">
-        <li>Physics trivia games with prizes</li>
-        <li>Pizza and refreshments</li>
-        <li>Science demonstrations</li>
-        <li>Networking opportunities</li>
-        <li>Physics-themed activities</li>
-      </ul>
-
-      <p class="mb-4">Who Should Attend:</p>
-      <ul class="list-disc ml-6 mb-4">
-        <li>Physics majors and minors</li>
-        <li>STEM students interested in physics</li>
-        <li>Faculty members</li>
-        <li>Physics Club members</li>
-        <li>Anyone interested in physics!</li>
-      </ul>
+      <p class="mb-6">The Society of Physics Students (SPS) at USM has hosted Physics Demo Days in the past, and they’ve always been a fun and engaging way to explore physics outside the classroom. These events give students and the community a chance to see exciting experiments live, learn the science behind them, and interact with physics majors in a hands-on setting. We value the creativity and enthusiasm of everyone who contributes, and we welcome new demo ideas that can make future events even better. Physics Demo Day is not only about learning—it’s about sharing curiosity, inspiring others, and building a community around science.</p>
+    </div>
+    <!-- Demo Day Image -->
+    <div class="flex justify-center my-8" data-aos="zoom-in">
+      <img src="demo_day.jpg" alt="Physics Demo Day" class="rounded-lg shadow-lg max-w-full md:max-w-2xl">
     </div>
 
+
     <div class="glass" data-aos="fade-up">
-      <h2 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">RSVP</h2>
-      <p class="mb-4">Help us plan for food and activities by letting us know you're coming!</p>
-      <button class="btn btn-accent">RSVP Now</button>
+      <h2 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Schedule</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-bold text-lg mb-2">Demo event</h3>
+          <p class="mb-2">6:30 PM TEC 411</p>
+          <p>Experience the thrill of live experiments, hands-on physics, and community creativity at USM’s Physics Demo Day!</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -161,6 +228,75 @@
       duration: 800,
       easing: 'ease-out-cubic',
       once: true
+    });
+
+    // Navigation setup
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      // Mobile nav toggle with animation
+      if (navToggle && navMenu) {
+        let isOpen = false;
+        
+        function toggleMenu() {
+          isOpen = !isOpen;
+          
+          // First remove the hidden class to make the menu visible
+          if (isOpen) {
+            navMenu.style.display = 'block'; // Force display block
+            navMenu.classList.remove('hidden');
+            // Give the browser a moment to register the display change
+            requestAnimationFrame(() => {
+              navMenu.classList.remove('translate-x-full');
+            });
+          } else {
+            navMenu.classList.add('translate-x-full');
+            // Wait for the transition to complete before hiding
+            setTimeout(() => {
+              navMenu.classList.add('hidden');
+              navMenu.style.display = ''; // Reset display
+            }, 300);
+          }
+          
+          // Toggle hamburger animation
+          if (isOpen) {
+            navToggle.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            `;
+          } else {
+            navToggle.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#333" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            `;
+          }
+        }
+
+        navToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (isOpen && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            toggleMenu();
+          }
+        });
+      }
+
+      // Handle mobile menu close on link click
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768 && !navMenu.classList.contains('hidden')) {
+            navToggle.click();
+          }
+        });
+      });
     });
   </script>
 </body>
